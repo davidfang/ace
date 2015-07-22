@@ -16,7 +16,7 @@ class m150721_085413_admin_info extends Migration
 
 
         $time = time();
-        $sql = "CREATE TABLE IF NOT EXISTS `{{%admin_info}}` (
+        $sql = "CREATE TABLE  {{%admin_info}} (
   `id` int(11) NOT NULL COMMENT '用户ID',
   `city` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `department` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '部门',
