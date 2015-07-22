@@ -37,7 +37,7 @@ class m150721_085413_admin_info extends Migration
 (2, '北京', '市场', '在职', '20150203', '41020519821019', '男', '19850805', 8, 30, '13512345678', 2147483647, 2147483647);
 ";
         $this->execute($sql);
-        $sql = "ALTER TABLE {{%admin_info}}";
+        $sql = "ALTER TABLE {{%admin_info}} ADD PRIMARY KEY (`id`);";
         $this->execute($sql);
     }
 

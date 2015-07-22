@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use common\components\MyHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\AdmininfoSearch */
@@ -61,7 +62,15 @@ $this->params['breadcrumbs'][] = $this->title;
              // 'created_at',
             // 'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn','header'=>'操作'
+            ['class' => 'yii\grid\ActionColumn',
+                'header'=>'操作',
+                'template' => '{menu} {view} {update} {delete}',
+                'buttons'  => [
+                    'menu'   => function ($url, $model, $key) {
+                        return $key == 1 ? null : MyHelper::actionbutton('/rbac/assignrole?id=' . $key, 'icon-th-list', ['title' => '查看/添加角色']);
+                    },
+
+                ]
 
             ],
         ],

@@ -23,7 +23,7 @@ class m150720_065701_admin_user extends Migration
             'email' => Schema::TYPE_STRING . ' NOT NULL',
 
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 10',
-            'userphoto' => Schema::TYPE_STRING . '(64)  NULL',
+            'userphoto' => Schema::TYPE_STRING . '(64)  NULL DEFAULT "nophoto.jpg"',
             'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
             'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL',
         ], $tableOptions);
