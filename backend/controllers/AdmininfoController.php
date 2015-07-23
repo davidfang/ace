@@ -115,7 +115,7 @@ class AdmininfoController extends BackendController
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
+        AdminUser::findOne($id)->delete();
         return $this->redirect(['index']);
     }
 
