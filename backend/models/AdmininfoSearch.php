@@ -70,7 +70,7 @@ class AdmininfoSearch extends AdminInfo
      */
     public function search($params)
     {
-        $query = Admininfo::find();
+        $query = AdminInfo::find();
         //$query->with('user');
         $query->joinWith('user');
         //$join_tale = $this->getDb()->quoteTableName('{{%admin_user}}');
