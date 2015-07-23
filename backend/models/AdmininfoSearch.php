@@ -10,12 +10,12 @@ use backend\models\AdminUser;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Admininfo;
+use app\models\AdminInfo;
 
 /**
  * AdmininfoSearch represents the model behind the search form about `app\models\Admininfo`.
  */
-class AdmininfoSearch extends Admininfo
+class AdmininfoSearch extends AdminInfo
 {
     public $username;
     public $email;

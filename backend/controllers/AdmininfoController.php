@@ -8,14 +8,14 @@ namespace backend\controllers;
 
 use backend\models\AdminUser;
 use Yii;
-use app\models\Admininfo;
+use app\models\AdminInfo;
 use app\models\AdmininfoSearch;
 use backend\controllers\BackendController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * AdmininfoController 控制器对 Admininfo 模型 CRUD 操作.
+ * AdmininfoController 控制器对 AdminInfo 模型 CRUD 操作.
  */
 class AdmininfoController extends BackendController
 {
@@ -65,7 +65,7 @@ class AdmininfoController extends BackendController
      */
     public function actionCreate()
     {
-        $model = new Admininfo();
+        $model = new AdminInfo();
         $model_primary = new AdminUser();
         if(Yii::$app->request->isPost){
             if ($model_primary->load(Yii::$app->request->post(),'AdminUser') && $model_primary->save()) {
@@ -85,7 +85,7 @@ class AdmininfoController extends BackendController
     }
 
     /**
-     * Admininfo 模型更新操作
+     * AdminInfo 模型更新操作
      * 如果更新成功将跳转到“查看”页面
      * @param integer $id
      * @return mixed
@@ -107,7 +107,7 @@ class AdmininfoController extends BackendController
     }
 
     /**
-     * Admininfo模型删除操作
+     * AdminInfo模型删除操作
      * 如果删除成功，跳转到“列表”页
      * @param integer $id
      * @return mixed
@@ -120,15 +120,15 @@ class AdmininfoController extends BackendController
     }
 
     /**
-     * 根据primary key查找 Admininfo 模型的信息
+     * 根据primary key查找 AdminInfo 模型的信息
      * 如果数据不存在跳转到 404
      * @param integer $id
-     * @return Admininfo the loaded model
+     * @return AdminInfo the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Admininfo::findOne($id)) !== null) {
+        if (($model = AdminInfo::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
