@@ -72,25 +72,19 @@ $this->params['breadcrumbs'] = [
     <?php $this->beginBlock('js_end') ?>
     $(function($){
 
-        $('.dd').nestable();
-        //$('.dd').nestable('serialize');//将页面显示的树结构序列化
-        //$('.dd').nestable('collapseAll');//折叠所有节点
-        //$('.dd').nestable('expandAll');//展开所有节点
+        $('.dd').nestable()
 
-        $('.dd-handle a').on('mousedown', function(e){
-            alert('aaa');
-            //console.log(e.offsetParent().o().parentElement());
-
-            //console.log(e.parentElement().attributes[1]);
-            e.stopPropagation();
-
+        var target = null;
+        $('.dd').on('mousedown','li', function(e){
+            target = e.target;
         });
-        $('.dd-handle a').on('mouseup', function(e){
-            alert('bbbb');alert(e.id);
-            //e.stopPropagation();
-
-        });
-
+        $('#nestable').on('change', function(){
+            var id = $(target).parents("li").parents("li").data('id');
+            //TODO
+            /*$.ajax({
+                "type":"GET"
+            });*/
+        })
         $('[data-rel="tooltip"]').tooltip();
 
     });

@@ -30,7 +30,7 @@ class AppAsset extends AssetBundle
         'js/ace-elements.min.js',
         'js/ace.min.js',
         'js/fullcalendar.min.js',
-        'js/jquery.nestable.min.js',
+        'js/jquery.nestable.js',
         'js/jquery.cookie.js'
     ];
     public $depends = [
