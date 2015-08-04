@@ -12,7 +12,7 @@ return [
     'defaultRoute'=>'home',
     'language'=>'zh-CN',
     'controllerNamespace' => 'backend\controllers',
-    'name' => '¼¯ÍÅOA',
+    'name' => 'ï¿½ï¿½ï¿½ï¿½OA',
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
@@ -20,7 +20,7 @@ return [
             'enableCsrfValidation'=>false,
         ],
         'user' => [
-            'identityClass' => 'backend\models\AdminUser',
+            'identityClass' => 'app\models\AdminUser',
             'enableAutoLogin' => true,
         ],
         'log' => [

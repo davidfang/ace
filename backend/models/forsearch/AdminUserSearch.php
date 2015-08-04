@@ -1,14 +1,14 @@
 <?php
 
-namespace backend\models\forsearch;
+namespace app\models\forsearch;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\AdminUser;
+use app\models\AdminUser;
 
 /**
- * AdminUserSearch represents the model behind the search form about `backend\models\AdminUser`.
+ * AdminUserSearch represents the model behind the search form about `app\models\AdminUser`.
  */
 class AdminUserSearch extends AdminUser
 {

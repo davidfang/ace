@@ -6,7 +6,7 @@
  * Time: 15:27
  */
 
-namespace backend\models;
+namespace app\models;
 
 
 class LoginForm extends \common\models\LoginForm {

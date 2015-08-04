@@ -25,7 +25,7 @@ use Yii;
 use yii\caching\ChainedDependency;
 use yii\caching\ExpressionDependency;
 use yii\caching\DbDependency;
-use backend\models\Menu;
+use app\models\Menu;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 

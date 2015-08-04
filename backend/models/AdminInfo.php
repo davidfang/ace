@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use backend\models\AdminUser;
+use app\models\AdminUser;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 

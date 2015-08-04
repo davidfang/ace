@@ -21,10 +21,10 @@
 
 namespace backend\controllers;
 
-use backend\models\forsearch\AdminUserSearch;
-use backend\models\LoginForm;
+use app\models\forsearch\AdminUserSearch;
+use app\models\LoginForm;
 use Yii;
-use backend\models\AdminUser;
+use app\models\AdminUser;
 use yii\helpers\FileHelper;
 use yii\web\Response;
 use yii\web\UploadedFile;

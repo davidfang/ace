@@ -6,7 +6,7 @@
 * Date: 2015-07-21* Time: 13:45:56*/
 namespace app\models;
 
-use backend\models\AdminUser;
+use app\models\AdminUser;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;

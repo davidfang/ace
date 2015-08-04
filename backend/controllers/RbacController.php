@@ -20,9 +20,9 @@
  */
 namespace backend\controllers;
 
-use backend\models\AuthItem;
-use backend\models\AdminUser;
-use backend\models\Menu;
+use app\models\AuthItem;
+use app\models\AdminUser;
+use app\models\Menu;
 use common\components\MyHelper;
 use Yii;
 use yii\data\ArrayDataProvider;

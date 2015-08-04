@@ -6,7 +6,7 @@
  * Time: 15:17
  */
 
-namespace backend\models;
+namespace app\models;
 
 
 use common\models\User;

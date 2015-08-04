@@ -10,7 +10,7 @@ namespace backend\controllers;
 
 use kartik\widgets\ActiveForm;
 use Yii;
-use backend\models\Menu;
+use app\models\Menu;
 use yii\web\Response;
 
 class SysController extends BackendController

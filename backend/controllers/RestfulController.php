@@ -14,5 +14,5 @@ use yii\rest\ActiveController;
 
 class RestfulController extends ActiveController
 {
-    public $modelClass = 'backend\models\TAdmUser';
+    public $modelClass = 'app\models\TAdmUser';
 }
