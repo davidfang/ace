@@ -36,7 +36,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ['format' => 'text',
                 'label'=>'姓名',
                 'value'=>'user.username',
-                'filter'=>Html::activeTextInput($searchModel, 'username',['class'=>'form-control']),
+                'attribute' => 'username',
+                //'filter'=>Html::activeTextInput($searchModel, 'username',['class'=>'form-control']),
                 /*function($model){
                 return $model->user->username;
                 },*/
@@ -44,7 +45,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ['format' => 'text',
                 'label'=>'邮箱',
                 'value'=>'user.email',
-                'filter'=>Html::activeTextInput($searchModel, 'email',['class'=>'form-control']),
+                'attribute' => 'email',
+                //'filter'=>Html::activeTextInput($searchModel, 'email',['class'=>'form-control']),
                 /*function($model){
                 return $model->user->username;
                 },*/

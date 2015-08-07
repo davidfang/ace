@@ -25,6 +25,8 @@ use yii\behaviors\TimestampBehavior;
  */
 class AdminInfo extends \yii\db\ActiveRecord
 {
+    public $username;
+    public $email;
     /**
      * @inheritdoc
      */
@@ -38,7 +40,11 @@ class AdminInfo extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
+            ['class' => TimestampBehavior::className(),
+                //'createdAtAttribute' => 'create_time',
+                'updatedAtAttribute' => false
+            ]
+            //'value' => new Expression('NOW()'),
         ];
     }
     /**

@@ -12,10 +12,17 @@ return [
     'defaultRoute'=>'home',
     'language'=>'zh-CN',
     'controllerNamespace' => 'backend\controllers',
-    'name' => '����OA',
+    'name' => '集团OA',
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+                ],
+            ],
+        ],
         'request'=>[
             'enableCsrfValidation'=>false,
         ],

@@ -48,7 +48,7 @@ class AdmininfoSearch extends AdminInfo
     {
         return [
             [['id', 'birthday_month', 'age', 'created_at', 'updated_at'], 'integer'],
-            [['city', 'department', 'status', 'in_time', 'id_number', 'sex', 'birthday', 'mobile','username'], 'safe'],
+            [['city', 'department', 'status', 'in_time', 'id_number', 'sex', 'birthday', 'mobile','username','email'], 'safe'],
         ];
     }
 
@@ -84,17 +84,43 @@ class AdmininfoSearch extends AdminInfo
                 'pagesize' => '10',
             ]
         ]);
+
+        $sort = $dataProvider->getSort();
+        $tmp_sort =  [
+            /* 其它字段不要动 */
+            /*  下面这段是加入的 */
+            /*=============*/
+            'username' => [
+                'asc' => ['username' => SORT_ASC],
+                'desc' => ['username' => SORT_DESC],
+                'label' => 'username'
+            ],
+            'email' => [
+                'asc' => ['email' => SORT_ASC],
+                'desc' => ['email' => SORT_DESC],
+                'label' => 'email'
+            ],
+            /*=============*/
+
+        ];
+        $dataProvider->setSort(['attributes' => array_merge($sort->attributes,$tmp_sort)]);
+
 //        $dataProvider->setSort([
 //            'attributes' => [
-//                'age',
-//                'sex',
+//                //'age',
+//                //'sex',
 //                /* 其它字段不要动 */
 //                /*  下面这段是加入的 */
 //                /*=============*/
 //                'username' => [
-//                    'asc' => ['user.username' => SORT_ASC],
-//                    'desc' => ['user.username' => SORT_DESC],
+//                    'asc' => ['username' => SORT_ASC],
+//                    'desc' => ['username' => SORT_DESC],
 //                    'label' => '姓名'
+//                ],
+//                'email' => [
+//                    'asc' => ['email' => SORT_ASC],
+//                    'desc' => ['email' => SORT_DESC],
+//                    'label' => '邮箱'
 //                ],
 //                /*=============*/
 //            ]
