@@ -44,7 +44,7 @@ class RbacController extends BackendController
         $permissions = $auth->getPermissions();
         $permissions_tree = MyHelper::itemTree($permissions);
 
-        return $this->render('test',['roles_tree'=>$roles_tree,'permissions_tree'=>$permissions_tree]);
+        return $this->render('index',['roles_tree'=>$roles_tree,'permissions_tree'=>$permissions_tree]);
     }
     /**
      * 添加角色/权限资料
@@ -166,7 +166,7 @@ class RbacController extends BackendController
         $auth = Yii::$app->authManager;
         $father_obj = (is_null($auth->getRole($father)))?$auth->getPermission($father):$auth->getRole($father);
         $child_obj = (is_null($auth->getRole($child)))?$auth->getPermission($child):$auth->getRole($child);
-        if ($auth->hasChild($father_obj,$child_obj) and $auth->addChild($father_obj,$child_obj)) {
+        if (!$auth->hasChild($father_obj,$child_obj) and $auth->addChild($father_obj,$child_obj)) {
             //Yii::$app->session->setFlash('success');
             $return['status'] = true;
             $return['msg'] = '添加成功';
