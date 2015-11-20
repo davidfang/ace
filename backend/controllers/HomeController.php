@@ -54,7 +54,6 @@ class HomeController extends Controller
     {
         //缓存一个带有依赖的缓存
         $key = '_menu' . Yii::$app->user->id;
-
         if (Yii::$app->session->getFlash('reflush') || !Yii::$app->cache->get($key)) {
             //如果缓存依赖发生改变，重新生成缓存
             $dp = new ExpressionDependency([

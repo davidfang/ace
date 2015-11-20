@@ -1,28 +1,10 @@
 <?php
-/**
- *      ┏┓　　　┏┓
- *    ┏┛┻━━━┛┻┓
- *    ┃　　　　　　　┃
- *    ┃　　　━　　　┃
- *    ┃　┳┛　┗┳　┃
- *    ┃　　　　　　　┃
- *    ┃　　　┻　　　┃
- *    ┃　　　　　　　┃
- *    ┗━┓　　　┏━┛
- *        ┃　　　┃   神兽保佑
- *        ┃　　　┃   代码无BUG！
- *         ┃　　　┗━━━┓
- *        ┃　　　　　　　┣┓
- *        ┃　　　　　　　┏┛
- *        ┗┓┓┏━┳┓┏┛
- *          ┃┫┫　┃┫┫
- *          ┗┻┛　┗┻┛
- */
+
 use yii\helpers\Url;
 ?>
 <ul class="nav nav-list">
     <?php foreach ($list as $father): ?>
-        <?php if ($admin || Yii::$app->user->can($father->route)): ?>
+        <?php if ($admin || Yii::$app->user->can($father->menuname)): ?>
             <li>
                 <a href="#" class="dropdown-toggle">
                     <i class="<?= $father->menuicon ?>"></i>
@@ -32,7 +14,7 @@ use yii\helpers\Url;
                 </a>
                 <ul class="submenu">
                     <?php foreach ($father->getSon()->all() as $son): ?>
-                        <?php if ($son->level == 3  && ($admin || Yii::$app->user->can($son->route))): ?>
+                        <?php if ($son->level == 3  && ($admin || Yii::$app->user->can($son->menuname))): ?>
                             <li>
                                 <a href="<?= Url::toRoute($son->route) ?>">
                                     <i class="icon-double-angle-right"></i>
@@ -48,7 +30,7 @@ use yii\helpers\Url;
                                 </a>
                                 <ul class="submenu">
                                     <?php foreach ($son->getSon()->all() as $gson): ?>
-                                        <?php if ($admin || Yii::$app->user->can($gson->route)): ?>
+                                        <?php if ($admin || Yii::$app->user->can($gson->menuname)): ?>
                                             <li>
                                                 <a href="<?= Url::toRoute($gson->route) ?>">
                                                     <i class="<?= $gson->menuicon ?>"></i>

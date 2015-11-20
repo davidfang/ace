@@ -76,7 +76,7 @@ Modal::end();
             'template' => '{view} {update} {update2} {delete}',
             'buttons' => [
                 'view' => function ($url, $model, $key) {
-                    return $key == 1 ? null : MyHelper::actionbutton('/rbac/assignrole?id=' . $key, 'view', ['title' => '查看/添加角色']);
+                    return $key == 1 ? null : MyHelper::actionbutton('/rbac/assignment/view?id=' . $key, 'view', ['title' => '查看/添加角色']);
                 },
                 'update' =>function($url, $model, $key){
                     return  MyHelper::actionbutton("javascript:loadhtml($key)", 'update', ['title' => '修改资料']);

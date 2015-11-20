@@ -81,20 +81,20 @@ AppAsset::register($this);
 
                     <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                         <li>
-                            <a href="<?= Url::to(['user/setphoto']) ?>">
+                            <a href="<?= Yii::$app->urlManager->createUrl(['user/setphoto']) ?>">
                                 <i class="icon-user"></i>
                                 设置头像
                             </a>
                         </li>
                         <li>
-                            <a href="<?= Url::to(['user/changepwd']) ?>">
+                            <a href="<?= Yii::$app->urlManager->createUrl(['user/changepwd']) ?>">
                                 <i class="icon-edit"></i>
                                 修改密码
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="<?= Url::to(['user/logout']) ?>">
+                            <a href="<?= Yii::$app->urlManager->createUrl(['user/logout']) ?>">
                                 <i class="icon-off"></i>
                                 退出
                             </a>

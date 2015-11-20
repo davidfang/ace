@@ -60,15 +60,15 @@ class Menu extends \yii\db\ActiveRecord
         $auth = Yii::$app->authManager;
         if($insert)
         {
-            $permission = $auth->createPermission($this->route);
-            $permission->description = $this->menuname;
+            $permission = $auth->createPermission($this->menuname);
+            $permission->description = $this->route;
             $auth->add($permission);
         }else
         {
-            $route = ArrayHelper::getValue($changedAttributes,'route',$this->route);
+            $route = ArrayHelper::getValue($changedAttributes,'menuname',$this->menuname);
             $permission = $auth->getPermission($route);
-            $permission->name = $this->route;
-            $permission->description = $this->menuname;
+            $permission->name = $this->menuname;
+            $permission->description = $this->route;
             $auth->update($route,$permission);
         }
 
@@ -79,7 +79,7 @@ class Menu extends \yii\db\ActiveRecord
         parent::afterDelete();
         //删除所有权限
         $auth = Yii::$app->authManager;
-        if($p = $auth->getPermission($this->route))
+        if($p = $auth->getPermission($this->menuname))
             $auth->remove($p);
     }
     /**
