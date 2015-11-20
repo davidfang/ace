@@ -77,7 +77,7 @@ class m140506_102106_rbac_init extends \yii\db\Migration
             'PRIMARY KEY (item_name, user_id)',
             'FOREIGN KEY (item_name) REFERENCES ' . $authManager->itemTable . ' (name) ON DELETE CASCADE ON UPDATE CASCADE',
         ], $tableOptions);
-        $sql = "INSERT INTO {{%auth_item}} (`name`, `type`, `description`, `rule_name`, `data`, `created_at`, `updated_at`) VALUES
+        $sql = "INSERT INTO {$authManager->itemTable} (`name`, `type`, `description`, `rule_name`, `data`, `created_at`, `updated_at`) VALUES
 ('admininfo/index', 2, '用户列表', NULL, NULL, 1437391893, 1437480807),
 ('conf', 2, '系统设置', NULL, NULL, 1436867969, 1436867969),
 ('rbac', 2, '权限管理', NULL, NULL, 1436869060, 1436869060),
@@ -89,7 +89,7 @@ class m140506_102106_rbac_init extends \yii\db\Migration
 ('user/index', 2, '用户管理(备用)', NULL, NULL, 1437530369, 1437530369),
 ('管理员', 1, '管理员', NULL, NULL, 1436865294, 1436865294);";
         $this->execute($sql);
-        $sql = "INSERT INTO {{%auth_item_child}} (`parent`, `child`) VALUES
+        $sql = "INSERT INTO {$authManager->itemChildTable} (`parent`, `child`) VALUES
 ('user/add', 'admininfo/index'),
 ('管理员', 'admininfo/index'),
 ('管理员', 'conf'),
@@ -104,7 +104,7 @@ class m140506_102106_rbac_init extends \yii\db\Migration
 ('管理员', 'sys/menu'),
 ('管理员', 'user/add');";
         $this->execute($sql);
-        $sql = "INSERT INTO {{%auth_assignment}} (`item_name`, `user_id`, `created_at`) VALUES
+        $sql = "INSERT INTO {$authManager->assignmentTable} (`item_name`, `user_id`, `created_at`) VALUES
 ('管理员', '2', 1436868814);
 ";
         $this->execute($sql);

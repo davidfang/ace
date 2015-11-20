@@ -1,23 +1,5 @@
 ﻿<?php
-/**
- *      ┏┓　　　┏┓
- *    ┏┛┻━━━┛┻┓
- *    ┃　　　　　　　┃
- *    ┃　　　━　　　┃
- *    ┃　┳┛　┗┳　┃
- *    ┃　　　　　　　┃
- *    ┃　　　┻　　　┃
- *    ┃　　　　　　　┃
- *    ┗━┓　　　┏━┛
- *        ┃　　　┃   神兽保佑
- *        ┃　　　┃   代码无BUG！
- *         ┃　　　┗━━━┓
- *        ┃　　　　　　　┣┓
- *        ┃　　　　　　　┏┛
- *        ┗┓┓┏━┳┓┏┛
- *          ┃┫┫　┃┫┫
- *          ┗┻┛　┗┻┛
- */
+
 use backend\assets\AppAsset;
 use yii\helpers\Html;
 use kartik\widgets\Alert;

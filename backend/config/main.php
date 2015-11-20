@@ -12,9 +12,20 @@ return [
     'defaultRoute'=>'home',
     'language'=>'zh-CN',
     'controllerNamespace' => 'backend\controllers',
-    'name' => '集团OA',
+    'name' => '管理系统',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+        'rbac' => [
+            'class' => 'yii2mod\rbac\Module',
+            //Some controller property maybe need to change.
+            'controllerMap' => [
+                'assignment' => [
+                    'class' => 'yii2mod\rbac\controllers\AssignmentController',
+                    'userClassName' => 'app\models\AdminUser',
+                ]
+            ]
+        ],
+    ],
     'components' => [
         'view' => [
             'theme' => [
@@ -51,7 +62,9 @@ return [
             ],
         ],
         'authManager'=>[
-            'class'=>'yii\rbac\DbManager'
+            'class'=>'yii\rbac\DbManager',
+            'defaultRoles' => ['guest', 'user'],
+            'cache' => 'yii\caching\FileCache',
         ]
     ],
     'params' => $params,

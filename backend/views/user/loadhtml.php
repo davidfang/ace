@@ -1,23 +1,5 @@
 <?php
-/**
- *	  ┏┓　　　┏┓
- *	┏┛┻━━━┛┻┓
- *	┃　　　　　　　┃
- *	┃　　　━　　　┃
- *	┃　┳┛　┗┳　┃
- *	┃　　　　　　　┃
- *	┃　　　┻　　　┃
- *	┃　　　　　　　┃
- *	┗━┓　　　┏━┛
- *	    ┃　　　┃   神兽保佑
- *	    ┃　　　┃   代码无BUG！
- *	 	 ┃　　　┗━━━┓
- *	    ┃　　　　　　　┣┓
- *	    ┃　　　　　　　┏┛
- *	    ┗┓┓┏━┳┓┏┛
- *	      ┃┫┫　┃┫┫
- *	      ┗┻┛　┗┻┛
- */
+
 use kartik\widgets\ActiveForm;
 $action = is_null($model->id)?'user/adduser':['user/update','id'=>$model->id];
 ?>
