@@ -13,7 +13,7 @@ use yii\helpers\Url;
                     <b class="arrow icon-angle-down"></b>
                 </a>
                 <ul class="submenu">
-                    <?php foreach ($father->getSon()->all() as $son): ?>
+                    <?php  foreach ($father->getSon()->all() as $son): ?>
                         <?php if ($son->level == 3  && ($admin || Yii::$app->user->can($son->menuname))): ?>
                             <li>
                                 <a href="<?= Url::toRoute($son->route) ?>">
@@ -21,7 +21,7 @@ use yii\helpers\Url;
                                     <?= $son->menuname ?>
                                 </a>
                             </li>
-                        <?php elseif ($admin || Yii::$app->user->can($son->route)): ?>
+                        <?php elseif ($admin || Yii::$app->user->can($son->menuname)): ?>
                             <li>
                                 <a href="#" class="dropdown-toggle">
                                     <i class="icon-double-angle-right"></i>

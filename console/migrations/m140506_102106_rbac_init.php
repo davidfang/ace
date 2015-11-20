@@ -78,34 +78,50 @@ class m140506_102106_rbac_init extends \yii\db\Migration
             'FOREIGN KEY (item_name) REFERENCES ' . $authManager->itemTable . ' (name) ON DELETE CASCADE ON UPDATE CASCADE',
         ], $tableOptions);
         $sql = "INSERT INTO {$authManager->itemTable} (`name`, `type`, `description`, `rule_name`, `data`, `created_at`, `updated_at`) VALUES
-('admininfo/index', 2, '用户列表', NULL, NULL, 1437391893, 1437480807),
-('conf', 2, '系统设置', NULL, NULL, 1436867969, 1436867969),
-('rbac', 2, '权限管理', NULL, NULL, 1436869060, 1436869060),
-('rbac/index', 2, '权限地图', NULL, NULL, 1437530570, 1437530570),
-('rbac/permissions', 2, '资源管理', NULL, NULL, 1436865051, 1436865491),
-('rbac/roles', 2, '角色管理', NULL, NULL, 1436866405, 1436866405),
-('sys/menu', 2, '菜单管理', NULL, NULL, 1436868018, 1436868018),
-('user/add', 2, '用户', NULL, NULL, 1436860839, 1436860839),
-('user/index', 2, '用户管理(备用)', NULL, NULL, 1437530369, 1437530369),
-('管理员', 1, '管理员', NULL, NULL, 1436865294, 1436865294);";
+('分配权限', 2, 'rbac/permission', NULL, NULL, 1448008362, 1448008362),
+('分配角色', 2, 'rbac/assignment', NULL, NULL, 1448008423, 1448008423),
+('刷新菜单', 2, 'backend/reflushmenu', NULL, NULL, 1448008211, 1448008211),
+('权限管理', 2, 'rbac', NULL, NULL, 1448008144, 1448008144),
+('权限管理员', 1, '权限管理员', NULL, NULL, 1448008801, 1448008801),
+('用户列表', 2, 'admininfo/index', NULL, NULL, 1448008542, 1448008542),
+('用户权限', 2, 'user/index', NULL, NULL, 1448008615, 1448008615),
+('用户管理', 2, 'user', NULL, NULL, 1448008059, 1448008059),
+('用户管理员', 1, '用户管理员', NULL, NULL, 1448009037, 1448009037),
+('系统设置', 2, 'sys', NULL, NULL, 1448008041, 1448008041),
+('菜单管理', 2, 'menu', NULL, NULL, 1448008121, 1448008121),
+('菜单管理员', 1, '菜单管理员', NULL, NULL, 1448008820, 1448008820),
+('规则管理', 2, 'rbac/rule', NULL, NULL, 1448008383, 1448008383),
+('角色管理', 2, 'rbac/role', NULL, NULL, 1448008306, 1448008306),
+('设置菜单', 2, 'sys/menu', NULL, NULL, 1448008183, 1448008183),
+('超级管理员', 1, '超级管理员', NULL, NULL, 1448008740, 1448008740),
+('路由管理', 2, 'rbac/route', NULL, NULL, 1448008340, 1448008340);";
         $this->execute($sql);
         $sql = "INSERT INTO {$authManager->itemChildTable} (`parent`, `child`) VALUES
-('user/add', 'admininfo/index'),
-('管理员', 'admininfo/index'),
-('管理员', 'conf'),
-('conf', 'rbac'),
-('rbac', 'rbac/index'),
-('管理员', 'rbac/index'),
-('rbac', 'rbac/permissions'),
-('管理员', 'rbac/permissions'),
-('rbac', 'rbac/roles'),
-('管理员', 'rbac/roles'),
-('conf', 'sys/menu'),
-('管理员', 'sys/menu'),
-('管理员', 'user/add');";
+('权限管理', '分配权限'),
+('权限管理', '分配角色'),
+('菜单管理', '刷新菜单'),
+('权限管理员', '权限管理'),
+('超级管理员', '权限管理员'),
+('用户管理', '用户列表'),
+('用户管理员', '用户列表'),
+('用户管理', '用户权限'),
+('用户管理员', '用户权限'),
+('用户管理员', '用户管理'),
+('超级管理员', '用户管理员'),
+('权限管理员', '系统设置'),
+('菜单管理员', '系统设置'),
+('菜单管理员', '菜单管理'),
+('超级管理员', '菜单管理员'),
+('权限管理', '规则管理'),
+('权限管理', '角色管理'),
+('菜单管理', '设置菜单'),
+('权限管理', '路由管理');";
         $this->execute($sql);
         $sql = "INSERT INTO {$authManager->assignmentTable} (`item_name`, `user_id`, `created_at`) VALUES
-('管理员', '2', 1436868814);
+('权限管理员', '3', 1448014511),
+('用户管理员', '2', 1448009650),
+('菜单管理员', '4', 1448014481),
+('超级管理员', '5', 1448012115);
 ";
         $this->execute($sql);
 
