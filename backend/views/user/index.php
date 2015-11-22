@@ -1,23 +1,5 @@
 <?php
-/**
- *      ┏┓　　　┏┓
- *    ┏┛┻━━━┛┻┓
- *    ┃　　　　　　　┃
- *    ┃　　　━　　　┃
- *    ┃　┳┛　┗┳　┃
- *    ┃　　　　　　　┃
- *    ┃　　　┻　　　┃
- *    ┃　　　　　　　┃
- *    ┗━┓　　　┏━┛
- *        ┃　　　┃   神兽保佑
- *        ┃　　　┃   代码无BUG！
- *         ┃　　　┗━━━┓
- *        ┃　　　　　　　┣┓
- *        ┃　　　　　　　┏┛
- *        ┗┓┓┏━┳┓┏┛
- *          ┃┫┫　┃┫┫
- *          ┗┻┛　┗┻┛
- */
+
 header("Content-type:text/html;charset=utf-8");
 use yii\bootstrap\Modal;
 use kartik\widgets\ActiveForm;
@@ -61,6 +43,7 @@ Modal::end();
             'attribute'=>'username',
             //'filter'=>['admin'=>'系统管理员','demo'=>'屌丝管理员','hello'=>'嘻哈管理员'],
         ],
+        'email',
         [
             'header' => '角色',
 

@@ -14,6 +14,7 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'name' => '管理系统',
     'bootstrap' => ['log'],
+    'layout' => 'main',
     'modules' => [
         'rbac' => [
             'class' => 'yii2mod\rbac\Module',
@@ -40,6 +41,7 @@ return [
         'user' => [
             'identityClass' => 'app\models\AdminUser',
             'enableAutoLogin' => true,
+            'loginUrl' => ['user/login'],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

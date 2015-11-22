@@ -20,7 +20,7 @@ class AdminUserSearch extends AdminUser
     {
         return [
             [['id'], 'integer'],
-            [['username',  'userphoto'], 'safe'],
+            [['username',  'userphoto','email'], 'safe'],
         ];
     }
 
@@ -56,6 +56,7 @@ class AdminUserSearch extends AdminUser
 
         $query->andFilterWhere(['like', 'username', $this->username])
            // ->andFilterWhere(['like', 'password', $this->password])
+            ->andFilterWhere(['like', 'eamil', $this->email])
             ->andFilterWhere(['like', 'userphoto', $this->userphoto]);
 
         return $dataProvider;

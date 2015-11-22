@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use app\models\AdminUserAddForm;
 use app\models\forsearch\AdminUserSearch;
 use app\models\LoginForm;
 use Yii;
@@ -42,7 +43,11 @@ class UserController extends BackendController
             return $this->goBack();
         } else {
             $this->layout = 'main-login';
-            return $this->render('login', [
+            if($model->hasErrors()) {
+                var_dump($model->getErrors());
+                exit;
+            }
+                return $this->render('login', [
                 'model' => $model,
             ]);
         }
@@ -84,17 +89,19 @@ class UserController extends BackendController
     public function actionAdduser()
     {
         $model = new AdminUser(['scenario' => 'create']);
-        if (Yii::$app->request->isPost) {
-            $model->load($_POST);
-            if ($model->validate() && $model->save(false)) {
-                Yii::$app->session->setFlash('success');
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->validate() && $model->addUser()) {
+                Yii::$app->session->setFlash('success','添加成功');
             } else {
-                Yii::$app->session->setFlash('fail', '添加失败');
+                Yii::$app->session->setFlash('fail', '添加失败'.serialize($model->errors));
             }
             return $this->redirect(['user/index']);
         }
     }
-
+    /**
+     * 载入添加修改用户页面
+     * @return string
+     */
     public function actionLoadhtml()
     {
         if ($id = Yii::$app->request->post('id')) {
@@ -158,24 +165,25 @@ class UserController extends BackendController
      * 修改密码
      * @return string|Response
      */
-    public function actionChangepwd()
+    public function actionChangepwd($id=null)
     {
-        $model = AdminUser::findOne(Yii::$app->user->id);
+        $id = is_null($id)?Yii::$app->user->id :$id;
+        $model = AdminUser::findOne($id);
         $model->scenario = 'chgpwd';
-        if (Yii::$app->request->isPost) {
-            $post = Yii::$app->request->post('AdminUser');
-            if($model->validatePassword($post['oldpassword'])) {
-                if ($model->validatePassword($post['password'])) {
-                    Yii::$app->session->setFlash('fail', '新密码不可与原始密码一样');
-                } else {
-                    $model->setPassword($post['password']);
-                    Yii::$app->session->setFlash('success');
-                }
+        if($model->load(Yii::$app->request->post())){
+            if($model->validatePassword($model->oldpassword)) {
+                $model->setPassword($model->password);
+                $model->save(false);
+                Yii::$app->session->setFlash('success','密码修改成功');
             }else{
-                Yii::$app->session->setFlash('fail', '原密码错误');
+                Yii::$app->session->setFlash('fail','原始密码不正确');
             }
 
-            return $this->goHome();
+            if($id == Yii::$app->user->id ) {
+                return $this->goHome();
+            }else{
+                $this->redirect(['user/index']);
+            }
         }
         return $this->render('changepwd', [
             'model' => $model,

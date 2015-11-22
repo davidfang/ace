@@ -68,7 +68,7 @@ class AdmininfoController extends BackendController
         $model = new AdminInfo();
         $model_primary = new AdminUser();
         if(Yii::$app->request->isPost){
-            if ($model_primary->load(Yii::$app->request->post(),'AdminUser') && $model_primary->save()) {
+            if ($model_primary->load(Yii::$app->request->post(),'AdminUser') && $model_primary->addUser()) {
                 $model->load(Yii::$app->request->post(),'AdminInfo');
                 $model->id = $model_primary->id;
                 if( $model->save())
