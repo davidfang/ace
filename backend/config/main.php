@@ -17,11 +17,11 @@ return [
     'layout' => 'main',
     'modules' => [
         'rbac' => [
-            'class' => 'yii2mod\rbac\Module',
+            'class' => 'zc\rbac\Module',
             //Some controller property maybe need to change.
             'controllerMap' => [
                 'assignment' => [
-                    'class' => 'yii2mod\rbac\controllers\AssignmentController',
+                    'class' => 'zc\rbac\controllers\AssignmentController',
                     'userClassName' => 'app\models\AdminUser',
                 ]
             ]

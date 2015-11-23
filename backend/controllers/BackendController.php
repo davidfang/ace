@@ -6,7 +6,7 @@ use kartik\widgets\ActiveForm;
 use Yii;
 use yii\web\Controller;
 //use yii\filters\AccessControl;
-use yii2mod\rbac\components\AccessControl;
+use zc\rbac\components\AccessControl;
 use yii\web\MethodNotAllowedHttpException;
 
 class BackendController extends Controller

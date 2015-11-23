@@ -9,7 +9,7 @@ use yii\caching\DbDependency;
 use app\models\Menu;
 use yii\web\Controller;
 //use yii\filters\AccessControl;
-use yii2mod\rbac\components\AccessControl;
+use zc\rbac\components\AccessControl;
 
 class HomeController extends Controller
 {
