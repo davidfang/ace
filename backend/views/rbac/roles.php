@@ -1,23 +1,5 @@
 <?php
-/**
- *      ┏┓　　　┏┓
- *    ┏┛┻━━━┛┻┓
- *    ┃　　　　　　　┃
- *    ┃　　　━　　　┃
- *    ┃　┳┛　┗┳　┃
- *    ┃　　　　　　　┃
- *    ┃　　　┻　　　┃
- *    ┃　　　　　　　┃
- *    ┗━┓　　　┏━┛
- *        ┃　　　┃   神兽保佑
- *        ┃　　　┃   代码无BUG！
- *        ┃　　　┗━━━┓
- *        ┃　　　　　　　┣┓
- *        ┃　　　　　　　┏┛
- *        ┗┓┓┏━┳┓┏┛
- *          ┃┫┫　┃┫┫
- *          ┗┻┛　┗┻┛
- */
+
 use yii\grid\GridView;
 use yii\helpers\Html;
 use common\components\MyHelper;
