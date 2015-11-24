@@ -11,29 +11,6 @@ use yii\web\MethodNotAllowedHttpException;
 
 class BackendController extends Controller
 {
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class'        => AccessControl::className(),
-                'rules'        => [
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                    [
-                        'actions' => ['error'],
-                        'allow'   => true,
-                    ],
-                    [
-                        'actions' => ['login'],
-                        'allow'   => true,
-                        'roles'   => ['?'],
-                    ],
-                ],
-            ],
-        ];
-    }
 
     /**
      * 初始化

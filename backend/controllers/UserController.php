@@ -43,11 +43,7 @@ class UserController extends BackendController
             return $this->goBack();
         } else {
             $this->layout = 'main-login';
-            if($model->hasErrors()) {
-                var_dump($model->getErrors());
-                exit;
-            }
-                return $this->render('login', [
+            return $this->render('login', [
                 'model' => $model,
             ]);
         }
@@ -185,6 +181,27 @@ class UserController extends BackendController
                 $this->redirect(['user/index']);
             }
         }
+        return $this->render('changepwd', [
+            'model' => $model,
+        ]);
+    }
+    /**
+     * 修改
+     * @return string|Response
+     */
+    public function actionUpdate($id=null)
+    {
+        $id = is_null($id)?Yii::$app->user->id :$id;
+        $model = AdminUser::findOne($id);
+        $model->scenario = 'update';
+        if($model->load(Yii::$app->request->post())){
+            $model->setPassword($model->password);
+            $model->save(false);
+            Yii::$app->session->setFlash('success','密码修改成功');
+        }else{
+            Yii::$app->session->setFlash('fail','操作失败');
+        }
+        $this->redirect(['user/index']);
         return $this->render('changepwd', [
             'model' => $model,
         ]);

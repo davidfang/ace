@@ -73,6 +73,8 @@ return [
         'class' => 'zc\rbac\components\AccessControl',
         'allowActions' => [
             '/',
+            'home/*',
+            'backend/reflushmenu',
             'home/captcha',
             'home/error',
             'user/logout',
@@ -83,7 +85,27 @@ return [
             // But in the earlier stages of your development, you may probably want to
             // add a lot of actions here until you finally completed setting up rbac,
             // otherwise you may not even take a first step.
-        ]
+        ],
+        'rules'        => [
+            [
+                'allow' => true,
+                'roles' => ['@'],
+            ],
+            [
+                'actions' => ['logout'],
+                'allow' => true,
+                'roles' => ['@'],
+            ],
+            [
+                'actions' => ['error'],
+                'allow'   => true,
+            ],
+            [
+                'actions' => ['login'],
+                'allow'   => true,
+                'roles'   => ['?'],
+            ],
+        ],
     ],
     'params' => $params,
 ];

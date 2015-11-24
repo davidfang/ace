@@ -1,7 +1,7 @@
 <?php
 
 use kartik\widgets\ActiveForm;
-$action = is_null($model->id)?'user/adduser':['user/changepwd','id'=>$model->id];
+$action = is_null($model->id)?'user/adduser':['user/update','id'=>$model->id];
 ?>
 <?php $form = ActiveForm::begin([
     'id'=>'userform',

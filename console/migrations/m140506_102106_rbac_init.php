@@ -78,25 +78,27 @@ class m140506_102106_rbac_init extends \yii\db\Migration
             'FOREIGN KEY (item_name) REFERENCES ' . $authManager->itemTable . ' (name) ON DELETE CASCADE ON UPDATE CASCADE',
         ], $tableOptions);
         $sql = "INSERT INTO {$authManager->itemTable} (`name`, `type`, `description`, `rule_name`, `data`, `created_at`, `updated_at`) VALUES
-('分配权限', 2, 'rbac/permission', NULL, NULL, 1448008362, 1448008362),
-('分配角色', 2, 'rbac/assignment', NULL, NULL, 1448008423, 1448008423),
+('DEBUG', 2, 'debug/*', NULL, NULL, 1448357391, 1448357391),
+('分配权限', 2, 'rbac/permission/*', NULL, NULL, 1448008362, 1448008362),
+('分配角色', 2, 'rbac/assignment/*', NULL, NULL, 1448008423, 1448008423),
 ('刷新菜单', 2, 'backend/reflushmenu', NULL, NULL, 1448008211, 1448008211),
 ('权限管理', 2, 'rbac', NULL, NULL, 1448008144, 1448008144),
 ('权限管理员', 1, '权限管理员', NULL, NULL, 1448008801, 1448008801),
-('用户列表', 2, 'admininfo/index', NULL, NULL, 1448008542, 1448008542),
-('用户权限', 2, 'user/index', NULL, NULL, 1448008615, 1448008615),
+('用户列表', 2, 'admininfo/*', NULL, NULL, 1448008542, 1448008542),
+('用户权限', 2, 'user/*', NULL, NULL, 1448008615, 1448357580),
 ('用户管理', 2, 'user', NULL, NULL, 1448008059, 1448008059),
 ('用户管理员', 1, '用户管理员', NULL, NULL, 1448009037, 1448009037),
 ('系统设置', 2, 'sys', NULL, NULL, 1448008041, 1448008041),
 ('菜单管理', 2, 'menu', NULL, NULL, 1448008121, 1448008121),
 ('菜单管理员', 1, '菜单管理员', NULL, NULL, 1448008820, 1448008820),
-('规则管理', 2, 'rbac/rule', NULL, NULL, 1448008383, 1448008383),
-('角色管理', 2, 'rbac/role', NULL, NULL, 1448008306, 1448008306),
+('规则管理', 2, 'rbac/rule/*', NULL, NULL, 1448008383, 1448008383),
+('角色管理', 2, 'rbac/role/*', NULL, NULL, 1448008306, 1448008306),
 ('设置菜单', 2, 'sys/menu', NULL, NULL, 1448008183, 1448008183),
 ('超级管理员', 1, '超级管理员', NULL, NULL, 1448008740, 1448008740),
-('路由管理', 2, 'rbac/route', NULL, NULL, 1448008340, 1448008340);";
+('路由管理', 2, 'rbac/route/*', NULL, NULL, 1448008340, 1448008340);";
         $this->execute($sql);
         $sql = "INSERT INTO {$authManager->itemChildTable} (`parent`, `child`) VALUES
+('超级管理员', 'DEBUG'),
 ('权限管理', '分配权限'),
 ('权限管理', '分配角色'),
 ('菜单管理', '刷新菜单'),
@@ -121,6 +123,7 @@ class m140506_102106_rbac_init extends \yii\db\Migration
 ('权限管理员', '3', 1448014511),
 ('用户管理员', '2', 1448009650),
 ('菜单管理员', '4', 1448014481),
+('超级管理员', '1', 1448359155),
 ('超级管理员', '5', 1448012115);
 ";
         $this->execute($sql);

@@ -13,24 +13,6 @@ use yii\filters\AccessControl;
 
 class HomeController extends Controller
 {
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class'        => AccessControl::className(),
-                'rules'        => [
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                    [
-                        'actions' => ['error'],
-                        'allow'   => true,
-                    ],
-                ],
-            ],
-        ];
-    }
 
     /**
      * @inheritdoc
