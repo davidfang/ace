@@ -8,8 +8,8 @@ use yii\caching\ExpressionDependency;
 use yii\caching\DbDependency;
 use app\models\Menu;
 use yii\web\Controller;
-//use yii\filters\AccessControl;
-use zc\rbac\components\AccessControl;
+use yii\filters\AccessControl;
+//use zc\rbac\components\AccessControl;
 
 class HomeController extends Controller
 {
@@ -28,10 +28,6 @@ class HomeController extends Controller
                         'allow'   => true,
                     ],
                 ],
-                'denyCallback' => function ($rules, $action) {
-                    Yii::$app->user->returnUrl = Yii::$app->request->url;
-                    return $this->redirect(['user/login']);
-                },
             ],
         ];
     }

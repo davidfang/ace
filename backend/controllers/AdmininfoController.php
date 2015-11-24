@@ -21,14 +21,15 @@ class AdmininfoController extends BackendController
 {
     public function behaviors()
     {
-        return [
+        $behaviors = parent::behaviors();
+        return array_merge($behaviors, [
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
                 ],
             ],
-        ];
+        ]);
     }
 
     /**

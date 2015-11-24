@@ -11,7 +11,7 @@ use yii\helpers\Html;
     ]) ?>
 
     <?= $form->field($model, 'menuname')->textInput() ?>
-    <?= $form->field($model, 'route', ['enableAjaxValidation' => true])->textInput()->hint('三级菜单必须要按照\'controller/action\'格式书写') ?>
+    <?= $form->field($model, 'route', ['enableAjaxValidation' => true])->textInput()->hint('三级菜单必须要按照\'/controller/action\'格式书写') ?>
     <?= $form->field($model, 'menuicon')->textInput()->hint('参照Bootstrap图标') ?>
     <?= $form->field($model, 'level')->dropDownList([
         '1' => '一级菜单',

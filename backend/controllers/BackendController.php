@@ -5,8 +5,8 @@ namespace backend\controllers;
 use kartik\widgets\ActiveForm;
 use Yii;
 use yii\web\Controller;
-//use yii\filters\AccessControl;
-use zc\rbac\components\AccessControl;
+use yii\filters\AccessControl;
+//use zc\rbac\components\AccessControl;
 use yii\web\MethodNotAllowedHttpException;
 
 class BackendController extends Controller
@@ -31,10 +31,6 @@ class BackendController extends Controller
                         'roles'   => ['?'],
                     ],
                 ],
-                'denyCallback' => function ($rules, $action) {
-                    Yii::$app->user->returnUrl = Yii::$app->request->url;
-                    return $this->redirect(['user/login']);
-                },
             ],
         ];
     }
