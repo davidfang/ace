@@ -222,4 +222,167 @@ class MyHelper
         }
         return ['return'=>$return,'str'=>$str];
     }
+    /**
+     * @param $url 上传目标地址
+     * @param $model 模型名称model，一般指数据表名
+     * @param $field 数据表中需要的字段名称
+     * @param string $formname 表单字段名称（接收服务器对方的接收名称）
+     * @return mixed
+     */
+    public static function curlUploadFile($url,$model,$field, $formname = 'file') {
+        $uploadFile = \yii\web\UploadedFile::getInstance($model,$field);
+        $mimetype = $uploadFile->type;
+        $filename = realpath($uploadFile->tempName);
+        $upload_file = new \CURLFile($filename,$mimetype);
+        $post_data = array($formname => $upload_file);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch,CURLOPT_HEADER, false); //不输出头部信息
+        //curl_setopt($ch,CURLOPT_SAFE_UPLOAD, false);//强制PHP的cURL模块拒绝旧的@语法，仅接受CURLFile式的文件，php5.6已经改为true，我是5.6的，用了@,此处必须为false
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true); //成功返回true，输出内容
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+        //这里说明一点，CURLOPT_POSTFIELDS 一定要放在前面设置以后，不仅仅是上传，其他curl 操作也这样，保持参数设置有效
+        $result =  curl_exec($ch);
+        // 调试信息
+        // var_dump($result);exit;
+        curl_close($ch);
+        return json_decode($result,true);
+    }
+
+    /**
+     * 1.PHP CURL GET EXAMPLE
+    You can use the below code to send GET request.
+     * @param $url
+     * @return mixed
+     */
+    public static  function curlGet($url)
+    {
+        $ch = curl_init();
+
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+//  curl_setopt($ch,CURLOPT_HEADER, false);
+
+        $output=curl_exec($ch);
+
+        curl_close($ch);
+        return $output;
+    }
+
+    /**
+     * 2.PHP CURL POST EXAMPLE
+    PHP CURL POST & GET Examples
+    You can use the below code to submit form using PHP CURL.
+     * How to use the function:
+     *
+     * $params = array(
+    "name" => "Ravishanker Kusuma",
+    "age" => "32",
+    "location" => "India"
+    );
+
+    echo curlPost("http://hayageek.com/examples/php/curl-examples/post.php",$params);
+     *
+     * @param $url
+     * @param $params
+     * @return mixed
+     */
+    public static function curlPost($url,$params)
+    {
+        $postData = '';
+        //create name value pairs seperated by &
+        foreach($params as $k => $v)
+        {
+            $postData .= $k . '='.$v.'&';
+        }
+        rtrim($postData, '&');
+
+        $ch = curl_init();
+
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch,CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_POST, count($postData));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+
+        $output=curl_exec($ch);
+
+        curl_close($ch);
+        return $output;
+
+    }
+
+    /**
+     * 3.SEND RANDOM USER-AGENT IN THE REQUESTS
+    You can use the below function to get Random User-Agent.
+     * Using CURLOPT_USERAGENT, you can set User-Agent string.
+     *
+     * curl_setopt($ch,CURLOPT_USERAGENT,getRandomUserAgent());
+     *
+     * @return mixed
+     */
+    public static function getRandomUserAgent()
+    {
+        $userAgents=array(
+            "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.8.1.6) Gecko/20070725 Firefox/2.0.0.6",
+            "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)",
+            "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30)",
+            "Opera/9.20 (Windows NT 6.0; U; en)",
+            "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; en) Opera 8.50",
+            "Mozilla/4.0 (compatible; MSIE 6.0; MSIE 5.5; Windows NT 5.1) Opera 7.02 [en]",
+            "Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; fr; rv:1.7) Gecko/20040624 Firefox/0.9",
+            "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/48 (like Gecko) Safari/48"
+        );
+        $random = rand(0,count($userAgents)-1);
+
+        return $userAgents[$random];
+    }
+
+    /**
+     * 5.HOW TO HANDLE CURL ERRORS
+    we can use curl_errno(),curl_error() methods, to get the last errors for the current session.
+    curl_error($ch) -> returns error as string
+    curl_errno($ch) -> returns error number
+    You can use the below code to handle errors.
+     *
+     *
+     * @param $url
+     * @return mixed
+     */
+    public static function curlGetWithErros($url)
+    {
+        $ch = curl_init();
+
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+
+        $output=curl_exec($ch);
+
+        if($output === false)
+        {
+            echo "Error Number:".curl_errno($ch)."<br>";
+            echo "Error String:".curl_error($ch);
+        }
+        curl_close($ch);
+        return $output;
+    }
+    /**
+     * Checks if the user can perform the operation as specified by the given permission.
+     *
+     * Note that you must configure "authManager" application component in order to use this method.
+     * Otherwise an exception will be thrown.
+     *
+     * @param string $permissionName the name of the permission (e.g. "edit post") that needs access check.
+     * @param array $params name-value pairs that would be passed to the rules associated
+     * with the roles and permissions assigned to the user. A param with name 'user' is added to
+     * this array, which holds the value of [[id]].
+     *
+     * @return boolean whether the user can perform the operation as specified by the given permission.
+     */
+    public static function can($permissionName, $params = []){
+
+
+    }
 }
