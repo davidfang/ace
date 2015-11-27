@@ -78,6 +78,7 @@ class m140506_102106_rbac_init extends \yii\db\Migration
             'FOREIGN KEY (item_name) REFERENCES ' . $authManager->itemTable . ' (name) ON DELETE CASCADE ON UPDATE CASCADE',
         ], $tableOptions);
         $sql = "INSERT INTO {$authManager->itemTable} (`name`, `type`, `description`, `rule_name`, `data`, `created_at`, `updated_at`) VALUES
+('Gii', 2, 'gii/*', NULL, NULL, 1448357391, 1448357391),
 ('DEBUG', 2, 'debug/*', NULL, NULL, 1448357391, 1448357391),
 ('分配权限', 2, 'rbac/permission/*', NULL, NULL, 1448008362, 1448008362),
 ('分配角色', 2, 'rbac/assignment/*', NULL, NULL, 1448008423, 1448008423),
@@ -88,7 +89,7 @@ class m140506_102106_rbac_init extends \yii\db\Migration
 ('用户权限', 2, 'user/*', NULL, NULL, 1448008615, 1448357580),
 ('用户管理', 2, 'user', NULL, NULL, 1448008059, 1448008059),
 ('用户管理员', 1, '用户管理员', NULL, NULL, 1448009037, 1448009037),
-('系统设置', 2, 'sys', NULL, NULL, 1448008041, 1448008041),
+('系统设置', 2, 'sys/*', NULL, NULL, 1448008041, 1448008041),
 ('菜单管理', 2, 'menu', NULL, NULL, 1448008121, 1448008121),
 ('菜单管理员', 1, '菜单管理员', NULL, NULL, 1448008820, 1448008820),
 ('规则管理', 2, 'rbac/rule/*', NULL, NULL, 1448008383, 1448008383),

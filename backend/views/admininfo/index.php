@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'template' => '{menu} {view} {update} {delete}',
                 'buttons'  => [
                     'menu'   => function ($url, $model, $key) {
-                        return $key == 1 ? null : MyHelper::actionbutton('/rbac/assignrole?id=' . $key, 'icon-th-list', ['title' => '查看/添加角色']);
+                        return $key == 1 ? null : MyHelper::actionbutton('/rbac/assignment/view?id=' . $key, 'icon-th-list', ['title' => '查看/添加角色']);
                     },
 
                 ]
