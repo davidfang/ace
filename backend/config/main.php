@@ -67,7 +67,16 @@ return [
             'class'=>'yii\rbac\DbManager',
             'defaultRoles' => ['guest', 'user'],
             'cache' => 'yii\caching\FileCache',
-        ]
+        ],
+        'assetManager'=>[
+            'bundles'=>[
+                'yii\web\JqueryAsset'=>[
+                    'jsOptions'=>[
+                        'position'=>\yii\web\View::POS_HEAD,
+                    ]
+                ]
+            ]
+        ],
     ],
     'as access' => [
         'class' => 'zc\rbac\components\AccessControl',
