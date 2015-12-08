@@ -59,6 +59,7 @@ class UserController extends BackendController
     {
         $model = AdminUser::findOne($id);
         if ($model->delete()) {
+            AdminUser::findOne($id)->delete();
             Yii::$app->session->setFlash('success');
         } else {
             Yii::$app->session->setFlash('fail', '删除失败');
