@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c42cda1609b284bc56712f98ea2843f8",
-    "content-hash": "a6d1a1c86a4db8508ebab61a005e4c21",
+    "hash": "b38b905733f337c718e4b314d08a324f",
+    "content-hash": "94a99c5c4bd29fa94958088bbf85ece4",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -1806,6 +1806,49 @@
             "time": "2015-05-10 22:12:32"
         },
         {
+            "name": "zc/gii",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:davidfang/zc-gii.git",
+                "reference": "83276a7b1d304ecb979b0d30aa9dce807a0a1748"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davidfang/zc-gii/zipball/83276a7b1d304ecb979b0d30aa9dce807a0a1748",
+                "reference": "83276a7b1d304ecb979b0d30aa9dce807a0a1748",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "zc\\gii\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "david fang"
+                }
+            ],
+            "description": "zc gii",
+            "keywords": [
+                "framework",
+                "gii",
+                "yii2"
+            ],
+            "time": "2015-11-26 11:30:12"
+        },
+        {
             "name": "zc/yii2-rbac",
             "version": "dev-master",
             "source": {
@@ -1815,7 +1858,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidfang/yii2-rbac/zipball/dd131ab4c802c4a9f8edd9b47e65d8cdb57f2a51",
+                "url": "https://api.github.com/repos/davidfang/yii2-rbac/zipball/bdf7d7c6c693a675a63d7f4c74eaedd84c01d297",
                 "reference": "dd131ab4c802c4a9f8edd9b47e65d8cdb57f2a51",
                 "shasum": ""
             },
@@ -2160,7 +2203,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "zc/yii2-rbac": 20
+        "zc/yii2-rbac": 20,
+        "zc/gii": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

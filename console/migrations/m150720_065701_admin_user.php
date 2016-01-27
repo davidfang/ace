@@ -17,6 +17,7 @@ class m150720_065701_admin_user extends Migration
             'id' => Schema::TYPE_PK,
             'fromusername' => Schema::TYPE_STRING . '  NULL',
             'username' => Schema::TYPE_STRING . ' NOT NULL',
+            'access_token' => Schema::TYPE_STRING . '  NULL',
             'auth_key' => Schema::TYPE_STRING . '(32) NOT NULL',
             'password_hash' => Schema::TYPE_STRING . ' NOT NULL',
             'password_reset_token' => Schema::TYPE_STRING,
