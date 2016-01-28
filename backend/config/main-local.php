@@ -56,6 +56,12 @@ if (!YII_ENV_TEST) {
                     'zc-gii' => '@vendor/zc/gii/extension/default',
                 ]
             ],
+            'migrate' => [
+                'class' => 'zc\gii\migration\Generator',
+                'templates' => [
+                    'zc-gii' => '@vendor/zc/gii/migration/default',
+                ]
+            ],
 
         ]
 

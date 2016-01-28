@@ -20,7 +20,7 @@
         "yiisoft/yii2-swiftmailer": "*",
 		"kartik-v/yii2-widgets": "*",
         "zc/yii2-rbac": "dev-master",
-        "zc/gii": "dev-master"
+        "zc/gii": "v2.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
