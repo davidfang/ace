@@ -4,10 +4,10 @@
 
 $this->params['breadcrumbs'] = [
     [
-        'label' => '路由管理',
+        'label' => '菜单管理',
         'url'   => \yii\helpers\Url::toRoute(['sys/menu'])
     ],
-    '添加路由'
+    '添加菜单'
 ];
 ?>
 
