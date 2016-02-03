@@ -4,7 +4,7 @@
 * Created by David
 * User: David.Fang
 * Date: 2016-1-22* Time: 18:57:59*/
-namespace api\modules\v1\controllers;
+namespace api\common;
 
 use yii\rest\ActiveController as RestActiveController;
 use yii\filters\auth\CompositeAuth;

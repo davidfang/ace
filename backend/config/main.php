@@ -26,6 +26,17 @@ return [
                 ]
             ]
         ],
+        'api-rbac' => [
+            'class' => 'zc\rbac\Module',
+            'authManager' => 'apiAuthManager',
+            //Some controller property maybe need to change.
+            'controllerMap' => [
+                'assignment' => [
+                    'class' => 'zc\rbac\controllers\AssignmentController',
+                    'userClassName' => 'app\models\User',
+                ]
+            ]
+        ],
     ],
     'components' => [
         'view' => [
@@ -67,6 +78,16 @@ return [
             'class'=>'yii\rbac\DbManager',
             'defaultRoles' => ['guest', 'user'],
             'cache' => 'yii\caching\FileCache',
+        ],
+        'apiAuthManager'=>[
+            'class'=>'yii\rbac\DbManager',
+            'defaultRoles' => ['guest', 'user'],
+            'cache' => 'yii\caching\FileCache',
+            'itemTable' => '{{%api_auth_item}}',
+            'itemChildTable' => '{{%api_auth_item_child}}',
+            'assignmentTable' => '{{%api_auth_assignment}}',
+            'ruleTable' => '{{%api_auth_rule}}',
+            'cacheKey' => 'api-rbac',
         ],
         'assetManager'=>[
             'bundles'=>[

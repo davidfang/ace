@@ -8,7 +8,7 @@ use yii\helpers\FileHelper;
 use yii\rest\ActiveController;
 
 
-class UserController extends ActiveController
+class UserController extends \api\common\ActiveController
 {
     /*public function afterAction($action, $result)
     {
