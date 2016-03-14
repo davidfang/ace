@@ -18,7 +18,7 @@ class m160203_030101_api_auth extends \yii\db\Migration
             'updated_at' => 'int(11)  DEFAULT NULL  ',
             'PRIMARY KEY ([[name]])',
         ], $tableOptions);
-        
+
         $this->createTable('{{%api_auth_item}}', [
             'name' => 'varchar(64) NOT NULL   ',
             'type' => 'int(11) NOT NULL  ',
