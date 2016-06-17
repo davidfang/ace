@@ -36,7 +36,7 @@ class UserController extends ActiveController
     {
         $result = false;
         $token = '';
-        $accessToken = Yii::$app->request->get('access_token');
+        $accessToken = Yii::$app->request->get('access-token');
         if ($accessToken) {
             if (User::findIdentityByAccessToken($accessToken)) {
                 $result = true;
@@ -53,7 +53,7 @@ class UserController extends ActiveController
         if ($result) {
             return [
                 'result' => '登录成功',
-                'access_token' => $accessToken,
+                'access-token' => $accessToken,
             ];
         } else {
             return [
